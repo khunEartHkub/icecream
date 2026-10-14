@@ -18,7 +18,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 86px;
-  font-size: 18px;
+  font-size: 23px;
 }
 body {
   margin: 0;
@@ -94,7 +94,7 @@ a {
 }
 .hero {
   min-height: calc(100vh - 82px);
-  padding: 66px clamp(24px, 10vw, 160px) 90px;
+  padding: 66px clamp(15px, 10vw, 160px) 90px;
   background: linear-gradient(120deg, #fff3d6 0%, #fff8e9 55%, #f9e7e9 100%);
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -113,16 +113,16 @@ a {
   margin: 0 0 14px;
 }
 .hero h1 {
-  font: clamp(88px, 12vw, 160px)/0.69 var(--serif);
+  font: clamp(88px, 12vw, 160px)/0.85 var(--serif);
   letter-spacing: -1px;
-  margin: 20px 0 60px;
+  margin: 70px 0 60px;
   color: #574440;
 }
 .hero h1 span {
   color: #da8299;
 }
 .hero-text {
-  font-size: 24px;
+  font-size: 30px;
   line-height: 1.9;
   color: #786761;
   margin: 0 0 26px;
@@ -306,7 +306,7 @@ a {
 }
 .section-heading h2,
 .about-section h2 {
-  font: clamp(55px, 7vw, 68px)/1 var(--serif);
+  font: clamp(55px, 7vw, 72px)/1.2 var(--serif);
   margin: 0 0 30px;
   color: #594743;
 }
@@ -353,7 +353,7 @@ a {
 }
 .timeline-date {
   color: #bd7787;
-  font-size: 20px;
+  font-size: 23px;
   font-weight: 600;
 }
 .timeline h3,
@@ -380,7 +380,7 @@ a {
 .history-note {
   grid-column: 2;
   color: #a28d80;
-  font-size: 17px;
+  font-size: 20px;
   margin: 0;
 }
 .styles-section {
@@ -479,6 +479,7 @@ a {
 .debate-grid h3 {
   font-size: 30px;
   margin-bottom: 10px;
+  text-align: center;
 }
 .debate-grid p {
   font-size: 26px;
