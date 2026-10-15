@@ -52,6 +52,7 @@ a {
   font: 32px/0.78 var(--serif);
   color: #5b4843;
 }
+
 .brand small {
   display: block;
   text-align: center;
@@ -59,6 +60,7 @@ a {
   letter-spacing: 2.4px;
   text-transform: uppercase;
   color: #9a8179;
+  animation: neon 1.5s ease-in-out infinite alternate;
 }
 .brand-mark {
   font: 36px var(--sans);
@@ -140,6 +142,7 @@ a {
   font-weight: 500;
   box-shadow: 0 8px 20px #ce879833;
   transition: transform 0.2s;
+  
 }
 .button:hover {
   transform: translateY(-3px);
@@ -365,6 +368,7 @@ a {
   margin: 0 0 5px;
   font-size: 24px;
   font-weight: 500;
+  text-align: center;
 }
 .timeline p,
 .compare-card p,
@@ -376,6 +380,7 @@ a {
   color: var(--muted);
   font-size: 24px;
   line-height: 1.8;
+  text-align: center;
 }
 .history-note {
   grid-column: 2;
@@ -428,6 +433,7 @@ a {
   background: #fff9;
   color: #705f58;
   font-size: 18px;
+  text-align: center;
 }
 .flavor-section {
   background: #fafffc;
@@ -475,6 +481,9 @@ a {
   padding: 19px 17px;
   border-radius: 14px;
   box-shadow: 0 8px 20px #708e9810;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .debate-grid h3 {
   font-size: 30px;
@@ -502,6 +511,9 @@ a {
   padding: 29px;
   border-radius: 16px;
   box-shadow: var(--shadow);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .fact-card > span {
   font-size: 34px;
@@ -1077,4 +1089,73 @@ footer > small {
     grid-template-columns: 1fr;
     max-width: 340px;
   }
+}
+/* บังคับขนาดรูปภาพในการ์ดประเภทไอศกรีม (compare-grid) */
+.compare-grid img {
+  width: 100%; /* บังคับให้รูปกว้างพอดีกับกรอบการ์ด */
+  height: 200px; /* กำหนดความสูงแบบตายตัว เพื่อให้ทุกรูปสูงเท่ากัน (ปรับตัวเลขได้ตามต้องการ เช่น 180px หรือ 220px) */
+  object-fit: cover; /* จัดระเบียบภาพไม่ให้เบี้ยวและตัดส่วนที่เกินออก */
+  border-radius: 12px; /* ลบมุมรูปให้มนเข้ากับกรอบการ์ด */
+  margin-bottom: 16px; /* เว้นระยะห่างด้านล่างระหว่างรูปกับหัวข้อ */
+  display: block;
+}
+/* 1. สั่งให้การ์ดพร้อมจะขยับแบบสมูทๆ */
+.compare-card {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease !important;
+}
+
+/* 2. สั่งให้การ์ดเด้งลอยขึ้นเวลาเอาเมาส์ไปชี้ */
+.compare-card:hover {
+  transform: translateY(-10px) !important; /* ดันการ์ดให้ลอยขึ้น 10 พิกเซล */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important; /* เพิ่มเงาด้านล่างให้ดูมีมิติมากขึ้น */
+}
+.debate-grid article:hover {
+  transform: translateY(-10px) !important; /* ดันการ์ดให้ลอยขึ้น */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important; /* เพิ่มเงาให้ชัดขึ้น */
+}
+.fact-card:hover {
+  transform: translateY(-10px) !important; /* ดันการ์ดให้ลอยขึ้น */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+/* ชุดคำสั่งสร้างการเคลื่อนไหวแบบ Neon (เรืองแสง) */
+@keyframes neon {
+  0%,
+  100% {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #e6a8b8,
+      0 0 40px #e6a8b8;
+  }
+  50% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px #e6a8b8,
+      0 0 10px #e6a8b8;
+  }
+}
+/* จัดการเอฟเฟกต์พิมพ์ดีดในปุ่ม */
+.type-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  width: 0;
+  animation: 
+    typing 2s steps(15, end) forwards,
+    blink-cursor .7s step-end infinite;
+}
+
+/* เพิ่มชุดคำสั่งพิมพ์ดีด (กางความกว้างจาก 0 ไปจนสุดข้อความ) */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 120px; } /* ตัวเลขนี้กว้างพอดีกับคำว่า "เริ่มชิมเรื่องราว" */
+}
+
+/* เพิ่มจังหวะกะพริบเฉพาะสีขาว */
+@keyframes blink-cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
 }
